@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dangdinhsi.asmt1902e.adapter.ItemAdapter;
@@ -25,10 +26,15 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvList;
     List<Item> listData;
     ItemAdapter itemAdapter;
+    TextView wStatusCurrent,currentTemp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        wStatusCurrent = findViewById(R.id.wStatus);
+        currentTemp = findViewById(R.id.currentTemp);
 
         //B1: Data source
         CallApi();
@@ -52,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                    listData  = response.body();
                    itemAdapter.reloadData(listData);
                 }
+                Item item = listData.get(0);
+                wStatusCurrent.setText(item.getIconPhrase());
+                currentTemp.setText(item.getTemperature().getValue()+"°");
             }
 
             @Override
