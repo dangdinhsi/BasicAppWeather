@@ -2,17 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:layout_marginRight="10dp">
+    android:layout_marginTop="50sp"
+    android:layout_marginRight="20dp">
         <TextView
             android:id="@+id/wDate"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:gravity="center"
             android:text="DateTime" />
         <ImageView
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/wIcon"
             android:layout_width="10dp"
             android:layout_height="10dp"
@@ -25,18 +28,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="#E91E63"
-            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             android:text="Current Temp"
             android:layout_gravity="center"/>
         <TextView
             android:id="@+id/wStatus"
             android:text="Temp Status"
-            android:textSize="10sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -12,10 +12,10 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HA NOI"
+        android:text="HÀ NỘI"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        android:layout_marginTop="50dp"
+        android:textSize="40sp"
+        android:layout_marginTop="80dp"
         />
 
         <androidx.recyclerview.widget.RecyclerView
