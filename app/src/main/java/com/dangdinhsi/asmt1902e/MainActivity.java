@@ -13,7 +13,10 @@ import com.dangdinhsi.asmt1902e.adapter.ItemAdapter;
 import com.dangdinhsi.asmt1902e.model.Item;
 import com.dangdinhsi.asmt1902e.network.APIManager;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -26,8 +29,20 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvList;
     List<Item> listData;
     ItemAdapter itemAdapter;
-    TextView wStatusCurrent,currentTemp;
+    TextView wStatusCurrent,currentTemp,toDay;
 
+    /*public String convertTime(String inputTime) {
+        SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        Date date = null;
+        try {
+            date = inFormat.parse(inputTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat outFormat = new SimpleDateFormat("E");
+        String goal = outFormat.format(date);
+        return goal;
+    }*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         wStatusCurrent = findViewById(R.id.wStatus);
         currentTemp = findViewById(R.id.currentTemp);
+        toDay = findViewById(R.id.toDay);
 
         //B1: Data source
         CallApi();
@@ -59,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                    itemAdapter.reloadData(listData);
                 }
                 Item item = listData.get(0);
+                toDay.setText(ItemAdapter.convertTime(item.getDateTime(),"E"));
                 wStatusCurrent.setText(item.getIconPhrase());
                 currentTemp.setText(item.getTemperature().getValue()+"°");
             }

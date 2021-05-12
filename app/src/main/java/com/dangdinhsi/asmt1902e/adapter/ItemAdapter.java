@@ -44,9 +44,8 @@ public class ItemAdapter extends RecyclerView.Adapter {
         String urlIcon ="";
         ItemHolder vh = (ItemHolder) holder;
         Item model = list.get(position);
-//        vh.wStatus.setText(model.getIconPhrase());
         float iTem = model.getTemperature().getValue();
-        vh.wDate.setText(convertTime(model.getDateTime()));
+        vh.wDate.setText(convertTime(model.getDateTime(),"ha"));
         vh.wTemp.setText(""+iTem);
         vh.wStatus.setText(model.getIconPhrase());
         if(model.getWeatherIcon()<10){
@@ -73,7 +72,8 @@ public class ItemAdapter extends RecyclerView.Adapter {
             wIcon = itemView.findViewById(R.id.wIcon);
         }
     }
-    public String convertTime(String inputTime) {
+
+    public static String convertTime(String inputTime,String pattern) {
         SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         Date date = null;
         try {
@@ -81,7 +81,7 @@ public class ItemAdapter extends RecyclerView.Adapter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        SimpleDateFormat outFormat = new SimpleDateFormat("ha");
+        SimpleDateFormat outFormat = new SimpleDateFormat(pattern);
         String goal = outFormat.format(date);
         return goal;
     }
